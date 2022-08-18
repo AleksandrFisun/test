@@ -1,13 +1,11 @@
 import './css/styles.css';
-import apiSearch from './js/apiSearch'
-import cards from "./templates/cards.hbs"
-refs={
-  listElement: document.querySelector('.country-list'),
-  buttonLoadMore: document.querySelector('.load'),
-}
+import apiSearch from './js/apiSearch';
+import cards from './templates/cards.hbs';
 
-apiSearch().then(data =>{
-  console.log(data)
-  const markup = cards(data.docs)
-  console.log(markup)
-})
+const listElement = document.querySelector('.country-list');
+const buttonLoadMore = document.querySelector('.load');
+
+apiSearch().then(data => {
+  const markup = cards(data.docs);
+  refs.listElement.insertAdjacentHTML('beforeend', markup);
+});
