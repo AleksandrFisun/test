@@ -1,3 +1,13 @@
 import './css/styles.css';
+import apiSearch from './js/apiSearch'
+import cards from "./templates/cards.hbs"
+refs={
+  listElement: document.querySelector('.country-list'),
+  buttonLoadMore: document.querySelector('.load'),
+}
 
-const DEBOUNCE_DELAY = 300;
+apiSearch().then(data =>{
+  console.log(data)
+  const markup = cards(data.docs)
+  console.log(markup)
+})
