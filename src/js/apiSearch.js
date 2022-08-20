@@ -4,7 +4,8 @@ const options = {
   },
 };
 export default function search(page = 1) {
-  return fetch(`https://the-one-api.dev/v2/character?limit=20&page=${page}`, options).then(
-    response => response.json()
-  );
+  return fetch(
+    `https://the-one-api.dev/v2/character?limit=10&page=${page}`,
+    options
+  ).then(response => response.json());
 }
